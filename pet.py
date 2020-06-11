@@ -1,14 +1,15 @@
 class Pet():
-    def __init__(self, name, fullness=50, energy=50, purr_happiness=85, hunger=5, sad=5):
+    def __init__(self, name, fullness=50, energy=50, happiness=85, hunger=5, sad=5):
         self.name = name
         self.fullness = fullness
         self.energy = energy
-        self.purr_happiness = purr_happiness
+        self.happiness = happiness
         self.hunger = hunger
         self.sad = sad
+        self.toys = []
 
     def get_love(self):
-        self.purr_happiness +=10 
+        self.happiness +=10 
     
     def eat_food(self):
         self.fullness += 30
@@ -18,7 +19,21 @@ class Pet():
     
     def life(self):
         self.fullness -= self.hunger
-        self.purr_happiness -= self.sad
+        self.happiness -= self.sad
+        for toy in self.toys:
+            self.happiness += toy.use()
+    
+    def get_toy(self, toy):
+        self.toys.append(toy)
+        self.happiness += 10
+
+    def __str__(self):
+        return """
+        %s:
+        Fullness: %d
+        Energy: %d
+        Happiness: %d
+        """ % (self.name, self.fullness, self.energy, self.happiness)
 
 #subclass of class Pet
 class PlayfulPet(Pet):
@@ -28,12 +43,15 @@ class PlayfulPet(Pet):
     
     def life(self):
         self.fullness -= self.hunger
-        self.purr_happiness -= self.sad/2
+        self.happiness -= self.sad/2
+        for toy in self.toys:
+            self.happiness += toy.use()
     
-    def play(self, other_cat):
+    def play(self, other_pet):
         #Super play powers
         for i in range(self.play_level):
-            other_cat.get_love()
+            other_pet.get_love()
+
 
 
 # dexter = Pet("Dexter", 50, 50, 85, 5, 5)

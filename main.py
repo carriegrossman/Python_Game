@@ -1,17 +1,21 @@
 from pet import Pet, PlayfulPet
+from toy import Toy
 
 pets = []
 
 main_menu = [
     "Adopt a Pet",
     "Play with Pet",
+    "Give a treat"
     "Feed Pet",
+    "Nap time!",
     "View Pet's Status",
+    "Give a toys to your pets",
     "Do nothing"
 ]
 
 def print_menu_error():
-    print("That choice was invalid. Please try again. \n\n\n")
+    print("That choice was invalid. Please try again. \n")
 
 def choices_to_string(choice_list):
     choice_string = ""
@@ -19,7 +23,7 @@ def choices_to_string(choice_list):
     for choice in choice_list:
         choice_string += "%d: %s\n" % (num, choice)
         num += 1
-    choice_string += "Please choose an option: "
+    choice_string += "Please choose an option: \n"
     return choice_string
 
 def get_user_choice(choice_list):
@@ -34,13 +38,48 @@ def get_user_choice(choice_list):
             print_menu_error()
     return choice
 
+adoption_menu = [
+    "Pet",
+    "Playful Pet"
+]
+
+treat_menu = [
+    ""
+]
+
 def main():    
     while True:
         choice = get_user_choice(main_menu)
         if choice == 1:
-            pets_name = input("Please enter the name of your new pet: \n")
-            pets.append(Pet(pets_name))
+            pet_name = input("Please enter the name of your new pet: \n")
+            print("What type of pet would you like to adopt? \n")
+            type_choice = get_user_choice(adoption_menu)
+            if type_choice == 1:
+                pets.append(Pet(pet_name))
+            elif type_choice == 2:
+                pets.append(PlayfulPet(pet_name))
+                print("Extra playful! \n")
             print("You now have %d pets" % len(pets))
-        
+        if choice == 2:
+            for pet in pets:
+                pet.get_love()
+        if choice == 3:
+            treat_choice = input("What treat would you like to give your pet(s) \n")
 
+        if choice == 4:
+            for pet in pets:
+                pet.eat_food()
+        if choice == 5:
+            for pet in pets:
+                pet.nap_time()
+        if choice == 6:
+            for pet in pets:
+                print(pet)
+        if choice == 7:
+            for pet in pets:
+                pet.get_toy(Toy())
+        if choice == 8:
+            for pet in pets:
+                pet.life()
+    
 main()
