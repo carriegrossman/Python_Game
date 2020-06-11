@@ -1,2 +1,4 @@
 class Treat():
-    def __init__(self):   
+    def treats(self, treats):
+        
+        
