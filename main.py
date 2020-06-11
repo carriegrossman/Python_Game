@@ -1,5 +1,6 @@
 from pet import Pet, PlayfulPet
 from toy import Toy
+from treats import Treat
 
 pets = []
 
@@ -24,7 +25,7 @@ def choices_to_string(choice_list):
     for choice in choice_list:
         choice_string += "%d: %s\n" % (num, choice)
         num += 1
-    choice_string += "Please choose an option: \n"
+    choice_string += "\n Please choose an option: \n"
     return choice_string
 
 def get_user_choice(choice_list):
@@ -44,25 +45,58 @@ adoption_menu = [
     "Playful Pet"
 ]
 
+treat_list = [
+    Treat("Steak",2,4, "I love steak!"),
+    Treat("Bacon",1,2,"This is delish!"),
+    Treat("Surprise Treat",2,1, "Yum!")
+]
+
+def treats_to_string(treat_list):
+    treat_string = ""
+    num = 1
+    for treat in treat_list:
+        treat_string += "%d: %s\n" % (num, treat.name)
+        num += 1
+    treat_string += "\n Give your pet a treat: \n"
+    return treat_string
+
+def get_pet_treat(treat_list):
+    treat = -1
+    treat_string = treats_to_string(treat_list)
+    while treat == -1:
+        try:
+            treat= int(input(treat_string))
+            if treat <= 0 or treat > len(treat_list):
+                raise ValueError
+        except ValueError:
+            print_menu_error()
+    return treat
+
 def main():    
     while True:
         choice = get_user_choice(main_menu)
         if choice == 1:
-            pet_name = input("Please enter the name of your new pet: \n")
-            print("What type of pet would you like to adopt? \n")
+            pet_name = input("\n Please enter the name of your new pet: \n")
+            print("\n What type of pet would you like to adopt? \n")
             type_choice = get_user_choice(adoption_menu)
             if type_choice == 1:
                 pets.append(Pet(pet_name))
             elif type_choice == 2:
                 pets.append(PlayfulPet(pet_name))
                 print("Extra playful! \n")
-            print("You now have %d pets" % len(pets))
+            print("You now have %d new pet(s) \n" % len(pets))
         if choice == 2:
             for pet in pets:
                 pet.get_love()
-        # if choice == 3:
-            
-
+        if choice == 3:
+            print("What kind of treat would you like to give your pet? \n")
+            for pet in pets:
+                type_treat = get_pet_treat(treat_list)
+                my_treat = treat_list[type_treat]
+                print(my_treat.message)
+                results = my_treat.give_treat()
+                pet.happiness += results[1]
+                pet.hunger -= results[0]
         if choice == 4:
             for pet in pets:
                 pet.eat_food()
@@ -79,6 +113,6 @@ def main():
             for pet in pets:
                 pet.life()
         if choice == 9:
-            exit()
+            exit(print("Bye for now!"))
     
 main()

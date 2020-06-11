@@ -1,5 +1,5 @@
 class Pet():
-    def __init__(self, name, fullness=50, energy=50, happiness=85, hunger=5, sad=5):
+    def __init__(self, name, fullness=50, energy=60, happiness=85, hunger=5, sad=5):
         self.name = name
         self.fullness = fullness
         self.energy = energy
@@ -12,10 +12,12 @@ class Pet():
         self.happiness +=10 
     
     def eat_food(self):
-        self.fullness += 30
+        self.fullness += 10
+        self.hunger -= 1
     
     def nap_time(self):
-        self.energy += 50
+        self.energy += 25
+        self.fullness -= 5
     
     def life(self):
         self.fullness -= self.hunger
@@ -37,7 +39,7 @@ class Pet():
 
 #subclass of class Pet
 class PlayfulPet(Pet):
-    def __init__(self, name, fullness=50, energy=50, hunger=5, play_level=1):
+    def __init__(self, name, fullness=70, energy=85, hunger=5, play_level=1):
         super().__init__(name, fullness, energy, 100, hunger, 1)
         self.play_level = play_level
     
