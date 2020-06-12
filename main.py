@@ -4,7 +4,7 @@ from treats import Treat
 
 pets = []
 
-print("Welcome Virtual Pet Game 🐶!\n ")
+print(u"\u001b[46;1m Welcome Virtual Pet Game! \u001b[0m")
 
 main_menu = [
     "Adopt a Pet",
@@ -19,7 +19,7 @@ main_menu = [
 ]
 
 def print_menu_error():
-    print("That choice was invalid. Please try again. \n")
+    print(u"\u001b[41m That choice was invalid. Please try again. \u001b[0m\n")
 
 def choices_to_string(choice_list):
     choice_string = ""
@@ -27,7 +27,7 @@ def choices_to_string(choice_list):
     for choice in choice_list:
         choice_string += "%d: %s\n" % (num, choice)
         num += 1
-    choice_string += "\n Please choose an option: \n"
+    choice_string += u"\n\u001b[36;1m Please choose an option: \u001b[0m\n"
     return choice_string
 
 def get_user_choice(choice_list):
@@ -48,9 +48,9 @@ adoption_menu = [
 ]
 
 treat_list = [
-    Treat("Steak",2,4, "I love steak!"),
-    Treat("Bacon",1,2,"This is delish!"),
-    Treat("Surprise Treat",2,1, "Yum!")
+    Treat("Steak",3,7, "I love steak!"),
+    Treat("Bacon",2,5,"This is delish!"),
+    Treat("Surprise Treat",2,6, "Yum!")
 ]
 
 def treats_to_string(treat_list):
@@ -78,20 +78,20 @@ def main():
     while True:
         choice = get_user_choice(main_menu)
         if choice == 1:
-            pet_name = input("\n Please enter the name of your new pet: \n")
+            pet_name = input(u"\n\u001b[32;1m Please enter the name of your new pet: \u001b[0m\n")
             print("\n What type of pet would you like to adopt? \n")
             type_choice = get_user_choice(adoption_menu)
             if type_choice == 1:
                 pets.append(Pet(pet_name))
             elif type_choice == 2:
                 pets.append(PlayfulPet(pet_name))
-                print("Extra playful! \n")
+                print(u"\n\u001b[35;1m Extra playful! \u001b[0m\n")
             print("You now have %d new pet(s) \n" % len(pets))
         if choice == 2:
             for pet in pets:
                 pet.get_love()
         if choice == 3:
-            print("What kind of treat would you like to give your pet? \n")
+            print(u"\n\u001b[32;1m What kind of treat would you like to give your pet? \u001b[0m\n")
             for pet in pets:
                 type_treat = get_pet_treat(treat_list)
                 my_treat = treat_list[type_treat]
@@ -115,6 +115,6 @@ def main():
             for pet in pets:
                 pet.life()
         if choice == 9:
-            exit(print("Bye for now!"))
+            exit(print(u"\u001b[46;1m Bye for now! \u001b[0m\n"))
     
 main()

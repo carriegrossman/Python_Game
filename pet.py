@@ -1,5 +1,5 @@
 class Pet():
-    def __init__(self, name, fullness=50, energy=60, happiness=85, hunger=5, sad=5):
+    def __init__(self, name, fullness=50, energy=60, happiness=75, hunger=50, sad=5):
         self.name = name
         self.fullness = fullness
         self.energy = energy
@@ -10,17 +10,17 @@ class Pet():
 
     def get_love(self):
         self.happiness +=20
-        self.energy -= 5
+        self.energy -= 15
+        self.hunger += 10
+        self.fullness -= 10
     
     def eat_food(self):
         self.fullness += 15
-        self.hunger -= 5
-        for treat in self.treats:
-            self.fullness += treat.give_treat()
+        self.hunger -= 10
     
     def nap_time(self):
         self.energy += 25
-        self.fullness -= 5
+        self.fullness -= 10
     
     def life(self):
         self.fullness -= self.hunger
@@ -29,22 +29,26 @@ class Pet():
             self.happiness += toy.use()
         for treat in self.treats:
             self.happiness += treat.give_treat()
+        for treat in self.treats:
+            self.fullness += treat.give_treat()
     
     def get_toy(self, toy):
         self.toys.append(toy)
         self.happiness += 10
+        self.energy -= 5
 
     def __str__(self):
         return """
         %s:
-        Fullness: %d
         Energy: %d
         Happiness: %d
-        """ % (self.name, self.fullness, self.energy, self.happiness)
+        Hunger: %d
+        Fullness: %d
+        """ % (self.name, self.energy, self.happiness, self.hunger, self.fullness)
 
 #subclass of class Pet
 class PlayfulPet(Pet):
-    def __init__(self, name, fullness=70, energy=85, hunger=5, play_level=1):
+    def __init__(self, name, fullness=50, energy=95, hunger=50, play_level=1):
         super().__init__(name, fullness, energy, 100, hunger, 1)
         self.play_level = play_level
     
@@ -55,6 +59,8 @@ class PlayfulPet(Pet):
             self.happiness += toy.use()
         for treat in self.treats:
             self.happiness += treat.give_treat()
+        for treat in self.treats:
+            self.fullness += treat.give_treat()
     
     def play(self, other_pet):
         #Super play powers
