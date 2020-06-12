@@ -43,14 +43,14 @@ def get_user_choice(choice_list):
     return choice
 
 adoption_menu = [
-    u"\u001b[31;1m Pet \u001b[0m",
-    u"\u001b[35;1m Playful Pet \u001b[0m"
+   "Pet",
+   "Playful Pet"
 ]
 
 treat_list = [
-    Treat("Steak",3,7, u"\u001b[44;1mI love steak!\u001b[0m"),
-    Treat("Bacon",2,5,u"\u001b[44;1m This is delish! \u001b[0m"),
-    Treat("Surprise Treat",2,6, u"\u001b[44;1m YUUMM! \u001b[0m")
+    Treat("Steak",3,7, u"\u001b[35;1m I love steak!\u001b[0m"),
+    Treat("Bacon",2,5,u"\u001b[35;1m This is delish! \u001b[0m"),
+    Treat("Surprise Treat",2,6, u"\u001b[35;1m YUUMM! \u001b[0m")
 ]
 
 def treats_to_string(treat_list):
@@ -79,7 +79,7 @@ def main():
         choice = get_user_choice(main_menu)
         if choice == 1:
             pet_name = input(u"\n\u001b[32;1m Please enter the name of your new pet: \u001b[0m\n")
-            print("\n What type of pet would you like to adopt? \n")
+            print(u"\u001b[35;1m\n What type of pet would you like to adopt? \u001b[0m\n")
             type_choice = get_user_choice(adoption_menu)
             if type_choice == 1:
                 pets.append(Pet(pet_name))
@@ -90,7 +90,7 @@ def main():
         if choice == 2:
             for pet in pets:
                 pet.get_love()
-            print("This is fun! Let's play all day")
+            print(u"\u001b[32;1mThis is fun! Let's play all day\u001b[0m")
         if choice == 3:
             print(u"\n\u001b[32;1m What kind of treat would you like to give your pet? \u001b[0m\n")
             for pet in pets:
@@ -103,11 +103,11 @@ def main():
         if choice == 4:
             for pet in pets:
                 pet.eat_food()
-            print("Yum, that hit the spot!")
+            print(u"\u001b[32;1m YUM! That hit the spot! \u001b[0m")
         if choice == 5:
             for pet in pets:
                 pet.nap_time()
-            print("I need a nap..")
+            print(u"\u001b[32;1m I need a nap...I'm sleepy. \u001b[0m")
         if choice == 6:
             for pet in pets:
                 print(pet)

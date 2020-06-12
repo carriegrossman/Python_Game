@@ -11,5 +11,7 @@ print (u"\u001b[44;1m A \u001b[45;1m B \u001b[46;1m C \u001b[47;1m D \u001b[0m")
  
 print(u"\n\u001b[36;1m STRING HERE \u001b[0m\n")
 
-print()
+#  Treat("Steak",3,7, u"\u001b[44;1mI love steak!\u001b[0m"),
+#     Treat("Bacon",2,5,u"\u001b[44;1m This is delish! \u001b[0m"),
+#     Treat("Surprise Treat",2,6, u"\u001b[44;1m YUUMM! \u001b[0m")
 

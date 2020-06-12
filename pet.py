@@ -39,7 +39,7 @@ class Pet():
 
     def __str__(self):
         return """
-        %s:
+        %s
         Energy: %d
         Happiness: %d
         Hunger: %d
