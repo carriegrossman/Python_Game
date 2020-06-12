@@ -9,11 +9,12 @@ class Pet():
         self.toys = []
 
     def get_love(self):
-        self.happiness +=10 
+        self.happiness +=20
+        self.energy -= 5
     
     def eat_food(self):
-        self.fullness += 10
-        self.hunger -= 1
+        self.fullness += 15
+        self.hunger -= 5
     
     def nap_time(self):
         self.energy += 25
