@@ -9,4 +9,7 @@ print("*****************************")
 print (u"\u001b[40m A \u001b[41m B \u001b[42m C \u001b[43m D \u001b[0m")
 print (u"\u001b[44;1m A \u001b[45;1m B \u001b[46;1m C \u001b[47;1m D \u001b[0m")
  
-print(u"\n\u001b[36;1m Please enter the name of your new pet: \u001b[0m\n")
+print(u"\n\u001b[36;1m STRING HERE \u001b[0m\n")
+
+print()
+

@@ -4,7 +4,7 @@ from treats import Treat
 
 pets = []
 
-print(u"\u001b[46;1m Welcome Virtual Pet Game! \u001b[0m")
+print(u"\u001b[46;1m Welcome Virtual Pet Game! \u001b[0m\n")
 
 main_menu = [
     "Adopt a Pet",
@@ -43,14 +43,14 @@ def get_user_choice(choice_list):
     return choice
 
 adoption_menu = [
-    "Pet",
-    "Playful Pet"
+    u"\u001b[31;1m Pet \u001b[0m",
+    u"\u001b[35;1m Playful Pet \u001b[0m"
 ]
 
 treat_list = [
-    Treat("Steak",3,7, "I love steak!"),
-    Treat("Bacon",2,5,"This is delish!"),
-    Treat("Surprise Treat",2,6, "Yum!")
+    Treat("Steak",3,7, u"\u001b[44;1mI love steak!\u001b[0m"),
+    Treat("Bacon",2,5,u"\u001b[44;1m This is delish! \u001b[0m"),
+    Treat("Surprise Treat",2,6, u"\u001b[44;1m YUUMM! \u001b[0m")
 ]
 
 def treats_to_string(treat_list):
@@ -90,6 +90,7 @@ def main():
         if choice == 2:
             for pet in pets:
                 pet.get_love()
+            print("This is fun! Let's play all day")
         if choice == 3:
             print(u"\n\u001b[32;1m What kind of treat would you like to give your pet? \u001b[0m\n")
             for pet in pets:
@@ -102,9 +103,11 @@ def main():
         if choice == 4:
             for pet in pets:
                 pet.eat_food()
+            print("Yum, that hit the spot!")
         if choice == 5:
             for pet in pets:
                 pet.nap_time()
+            print("I need a nap..")
         if choice == 6:
             for pet in pets:
                 print(pet)
@@ -115,6 +118,6 @@ def main():
             for pet in pets:
                 pet.life()
         if choice == 9:
-            exit(print(u"\u001b[46;1m Bye for now! \u001b[0m\n"))
+            exit(print(u"\u001b[42m Bye for now! \u001b[0m\n"))
     
 main()
