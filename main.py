@@ -4,6 +4,8 @@ from treats import Treat
 
 pets = []
 
+print("Welcome Virtual Pet Game 🐶!\n ")
+
 main_menu = [
     "Adopt a Pet",
     "Play with Pet",

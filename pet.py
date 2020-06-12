@@ -15,6 +15,8 @@ class Pet():
     def eat_food(self):
         self.fullness += 15
         self.hunger -= 5
+        for treat in self.treats:
+            self.fullness += treat.give_treat()
     
     def nap_time(self):
         self.energy += 25
@@ -25,6 +27,8 @@ class Pet():
         self.happiness -= self.sad
         for toy in self.toys:
             self.happiness += toy.use()
+        for treat in self.treats:
+            self.happiness += treat.give_treat()
     
     def get_toy(self, toy):
         self.toys.append(toy)
@@ -49,6 +53,8 @@ class PlayfulPet(Pet):
         self.happiness -= self.sad/2
         for toy in self.toys:
             self.happiness += toy.use()
+        for treat in self.treats:
+            self.happiness += treat.give_treat()
     
     def play(self, other_pet):
         #Super play powers
