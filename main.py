@@ -90,7 +90,7 @@ def main():
         if choice == 2:
             for pet in pets:
                 pet.get_love()
-            print(u"\u001b[32;1mThis is fun! Let's play all day\u001b[0m")
+            print(u"\u001b[32;1m This is fun! Let's play all day\u001b[0m")
         if choice == 3:
             print(u"\n\u001b[32;1m What kind of treat would you like to give your pet? \u001b[0m\n")
             for pet in pets:

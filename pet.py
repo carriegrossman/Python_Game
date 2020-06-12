@@ -9,7 +9,7 @@ class Pet():
         self.toys = []
 
     def get_love(self):
-        self.happiness +=20
+        self.happiness += 15
         self.energy -= 15
         self.hunger += 10
         self.fullness -= 10
@@ -19,7 +19,7 @@ class Pet():
         self.hunger -= 10
     
     def nap_time(self):
-        self.energy += 25
+        self.energy += 15
         self.fullness -= 10
     
     def life(self):
