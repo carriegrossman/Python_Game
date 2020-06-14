@@ -118,6 +118,6 @@ def main():
             for pet in pets:
                 pet.life()
         if choice == 9:
-            exit(print(u"\u001b[42m Come back soon! \u001b[0m\n"))
+            exit(print(u"\u001b[42m Please, come back soon! \u001b[0m\n"))
     
 main()
