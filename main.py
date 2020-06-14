@@ -4,7 +4,7 @@ from treats import Treat
 
 pets = []
 
-print(u"\u001b[46;1m Welcome Virtual Pet Game! \u001b[0m\n")
+print(u"\u001b[46;1m Welcome to the Virtual Pet Game! \u001b[0m\n")
 
 main_menu = [
     "Adopt a Pet",
@@ -48,9 +48,9 @@ adoption_menu = [
 ]
 
 treat_list = [
-    Treat("Steak",3,7, u"\u001b[35;1m I love steak!\u001b[0m"),
+    Treat("Steak",3,7,u"\u001b[35;1m I love steak! 1\u001b[0m"),
     Treat("Bacon",2,5,u"\u001b[35;1m This is delish! \u001b[0m"),
-    Treat("Surprise Treat",2,6, u"\u001b[35;1m YUUMM! \u001b[0m")
+    Treat("Veggie Treat",2,6,u"\u001b[35;1m YUUMM! \u001b[0m")
 ]
 
 def treats_to_string(treat_list):
@@ -85,7 +85,7 @@ def main():
                 pets.append(Pet(pet_name))
             elif type_choice == 2:
                 pets.append(PlayfulPet(pet_name))
-                print(u"\n\u001b[35;1m Extra playful! \u001b[0m\n")
+                print(u"\n\u001b[35;1m Extra playful!! \u001b[0m\n")
             print("You now have %d new pet(s) \n" % len(pets))
         if choice == 2:
             for pet in pets:
@@ -118,6 +118,6 @@ def main():
             for pet in pets:
                 pet.life()
         if choice == 9:
-            exit(print(u"\u001b[42m Bye for now! \u001b[0m\n"))
+            exit(print(u"\u001b[42m Come back soon! \u001b[0m\n"))
     
 main()
