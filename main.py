@@ -107,7 +107,7 @@ def main():
         if choice == 5:
             for pet in pets:
                 pet.nap_time()
-            print(u"\u001b[32;1m I need a nap...I'm sleepy. \u001b[0m")
+            print(u"\u001b[32;1m Nap time!...I'm sleepy. \u001b[0m")
         if choice == 6:
             for pet in pets:
                 print(pet)
